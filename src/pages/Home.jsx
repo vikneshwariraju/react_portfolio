@@ -1,66 +1,166 @@
-import HeroImg from '../assets/hero.png'; 
-import { AiOutlineGithub, AiOutlineLinkedin, AiOutlineMail, AiOutlineDownload } from "react-icons/ai";
-import { motion } from 'framer-motion';
+import React from "react";
 
-export default function Hero() {
-    return (
-        <section className='flex flex-col md:flex-row px-10 py-32 bg-slate-950 justify-center items-center min-h-screen gap-10'>
-            
-            <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className='md:w-1/2 flex flex-col'
-            >
-                <h1 className='text-white text-7xl font-bold leading-tight'>
-                    Hi, <br /> Im <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-fuchsia-500'>Gracy. S</span>
-                </h1>
-                <p className='text-2xl mt-6 text-slate-400 font-light'>
-                    Crafting digital experience as a <span className='text-white font-medium'>Full-stack developer</span>
-                </p>
+export default function Home() {
+  return (
+    <section
+      id="home"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background:
+          "linear-gradient(135deg, #0a0a1a 0%, #0d0d2b 50%, #0a0a1a 100%)",
+        position: "relative",
+        overflow: "hidden",
+        fontFamily: "'Segoe UI', sans-serif",
+        padding: "0 20px",
+      }}
+    >
+      {/* Glow circles */}
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          left: "-10%",
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(124,58,237,0.18), transparent 70%)",
+        }}
+      />
 
-                <div className='flex py-8 gap-6'>
-                    <a href='https://github.com/gracysandanarajan' target='_blank' rel='noreferrer' className='text-slate-300 hover:text-indigo-500 text-4xl transition-all duration-300'>
-                        <AiOutlineGithub/>
-                    </a>
-                    <a href='https://linkedin.com/in/gracy-sandanarajan-5807a4363/' target='_blank' rel='noreferrer' className='text-slate-300 hover:text-indigo-500 text-4xl transition-all duration-300'>
-                        <AiOutlineLinkedin/>
-                    </a>
-                    <a href='mailto:gracysandanarajan@gmail.com' className='text-slate-300 hover:text-indigo-500 text-4xl transition-all duration-300'>
-                        <AiOutlineMail/>
-                    </a>
-                </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          right: "-10%",
+          width: 450,
+          height: 450,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(168,85,247,0.15), transparent 70%)",
+        }}
+      />
 
-                <motion.a 
-                    href="/gracy-resume.pdf" 
-                    download
-                    whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgb(99, 102, 241)" }}
-                    whileTap={{ scale: 0.95 }}
-                    className='w-fit flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all'
-                >
-                    <AiOutlineDownload size={25}/> Download Resume
-                </motion.a>
-            </motion.div>
+      {/* Main content */}
+      <div style={{ textAlign: "center", maxWidth: 800 }}>
+        {/* Badge */}
+        <p
+          style={{
+            color: "#a855f7",
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            fontSize: 14,
+            marginBottom: 15,
+          }}
+        >
+          Full Stack Developer
+        </p>
 
-            {/* --- Round Image Section --- */}
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className='md:w-1/3 flex justify-center items-center relative'
-            >
-                {/* Background Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-fuchsia-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-                
-                {/* Circular Image Container */}
-                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl relative z-10">
-                    <img 
-                        src={HeroImg} 
-                        alt="Developer" 
-                        className='w-full h-full object-cover transform hover:scale-110 transition-transform duration-500' 
-                    />
-                </div>
-            </motion.div>
-        </section>
-    )
+        {/* Name */}
+        <h1
+          style={{
+            fontSize: "clamp(2.5rem, 6vw, 4rem)",
+            fontWeight: 800,
+            color: "#fff",
+            margin: 0,
+            lineHeight: 1.2,
+          }}
+        >
+          Hi, I'm{" "}
+          <span
+            style={{
+              background: "linear-gradient(90deg, #7c3aed, #a855f7, #c084fc)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Vikneshwari 👋
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          style={{
+            color: "rgba(255,255,255,0.7)",
+            marginTop: 20,
+            fontSize: "1.1rem",
+            lineHeight: 1.8,
+          }}
+        >
+          I build modern, responsive, and high-performance web applications
+          using React, Java, and backend technologies. I love turning ideas
+          into real-world products 🚀
+        </p>
+
+        {/* Buttons */}
+        <div
+          style={{
+            marginTop: 35,
+            display: "flex",
+            justifyContent: "center",
+            gap: 15,
+            flexWrap: "wrap",
+          }}
+        >
+          <a
+            href="#projects"
+            style={{
+              padding: "12px 24px",
+              background: "linear-gradient(90deg, #7c3aed, #a855f7)",
+              color: "#fff",
+              borderRadius: 30,
+              textDecoration: "none",
+              fontWeight: 600,
+              boxShadow: "0 0 20px rgba(124,58,237,0.3)",
+            }}
+          >
+            View Projects
+          </a>
+
+          <a
+            href="#about"
+            style={{
+              padding: "12px 24px",
+              border: "1px solid rgba(168,85,247,0.5)",
+              color: "#a855f7",
+              borderRadius: 30,
+              textDecoration: "none",
+              fontWeight: 600,
+            }}
+          >
+            About Me
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div
+          style={{
+            marginTop: 50,
+            display: "flex",
+            justifyContent: "center",
+            gap: 30,
+            flexWrap: "wrap",
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <h3 style={{ color: "#7c3aed", margin: 0 }}>10+</h3>
+            <p style={{ color: "#aaa", fontSize: 12 }}>Projects</p>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <h3 style={{ color: "#a855f7", margin: 0 }}>2+</h3>
+            <p style={{ color: "#aaa", fontSize: 12 }}>Internships</p>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <h3 style={{ color: "#c084fc", margin: 0 }}>Full Stack</h3>
+            <p style={{ color: "#aaa", fontSize: 12 }}>Developer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
